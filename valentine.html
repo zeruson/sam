@@ -1,0 +1,153 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2821
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 <!DOCTYPE html>\
+<html>\
+<head>\
+    <style>\
+        body \{\
+            display: flex;\
+            flex-direction: column;\
+            align-items: center;\
+            justify-content: center;\
+            min-height: 100vh;\
+            background: radial-gradient(circle, #ffe6f0, #ffb3c6);\
+            margin: 0;\
+            position: relative;\
+        \}\
+\
+        .heart-container \{\
+            position: relative;\
+            animation: float 3s ease-in-out infinite;\
+        \}\
+\
+        .heart \{\
+            position: relative;\
+            width: 120px;\
+            height: 110px;\
+            animation: heartbeat 1.2s ease-in-out infinite;\
+        \}\
+\
+        .heart:before,\
+        .heart:after \{\
+            position: absolute;\
+            content: "";\
+            width: 60px;\
+            height: 95px;\
+            background: linear-gradient(45deg, #ff69b4, #ff1493, #ff0066);\
+            border-radius: 60px 60px 0 0;\
+            box-shadow: 0 0 40px rgba(255, 105, 180, 0.4);\
+            transition: all 0.3s ease;\
+        \}\
+\
+        .heart:before \{\
+            left: 60px;\
+            transform: rotate(-45deg);\
+            transform-origin: 0 100%;\
+        \}\
+\
+        .heart:after \{\
+            left: 0;\
+            transform: rotate(45deg);\
+            transform-origin: 100% 100%;\
+        \}\
+\
+        /* Enhanced heartbeat animation */\
+        @keyframes heartbeat \{\
+            0% \{ transform: scale(1); \}\
+            15% \{ transform: scale(1.2); \}\
+            30% \{ transform: scale(1); \}\
+            45% \{ transform: scale(1.1); \}\
+            60% \{ transform: scale(1); \}\
+            100% \{ transform: scale(1); \}\
+        \}\
+\
+        @keyframes float \{\
+            0% \{ transform: translateY(0px); \}\
+            50% \{ transform: translateY(-20px); \}\
+            100% \{ transform: translateY(0px); \}\
+        \}\
+\
+        .message \{\
+            font-family: 'Brush Script MT', cursive;\
+            font-size: 2.5em;\
+            background: linear-gradient(45deg, #ff0066, #ff1493, #ff69b4);\
+            -webkit-background-clip: text;\
+            background-clip: text;\
+            color: transparent;\
+            margin: 30px 0;\
+            animation: text-glow 2s ease-in-out infinite;\
+        \}\
+\
+        .signature \{\
+            font-family: 'Brush Script MT', cursive;\
+            font-size: 1.5em;\
+            background: linear-gradient(45deg, #ff0066, #ff1493, #ff69b4);\
+            -webkit-background-clip: text;\
+            background-clip: text;\
+            color: transparent;\
+            margin-top: 20px;\
+            animation: text-glow 2s ease-in-out infinite;\
+            position: absolute;\
+            bottom: 30px;\
+            text-align: center;\
+        \}\
+\
+        @keyframes text-glow \{\
+            0% \{ text-shadow: 0 0 10px rgba(255,105,180,0.3); \}\
+            50% \{ text-shadow: 0 0 20px rgba(255,105,180,0.7); \}\
+            100% \{ text-shadow: 0 0 10px rgba(255,105,180,0.3); \}\
+        \}\
+\
+        .sparkles \{\
+            position: absolute;\
+            width: 100%;\
+            height: 100%;\
+            pointer-events: none;\
+        \}\
+\
+        @keyframes sparkle \{\
+            0% \{ transform: rotate(0deg) scale(0); opacity: 1; \}\
+            100% \{ transform: rotate(360deg) scale(1.5); opacity: 0; \}\
+        \}\
+    </style>\
+</head>\
+<body>\
+    <div class="heart-container">\
+        <div class="heart"></div>\
+        <div class="sparkles" id="sparkles"></div>\
+    </div>\
+    <div class="message">Will you be my Valentine, Sam? \uc0\u55357 \u56472 </div>\
+    \
+    <div class="signature">\
+        with love from zeruson<br>\
+        <span style="font-size: 0.8em;">\uc0\u10084 \u65039  Made with code \u10084 \u65039 </span>\
+    </div>\
+\
+    <script>\
+        function createSparkles() \{\
+            const container = document.getElementById('sparkles');\
+            for (let i = 0; i < 20; i++) \{\
+                const spark = document.createElement('div');\
+                spark.style.cssText = `\
+                    position: absolute;\
+                    width: 8px;\
+                    height: 8px;\
+                    background: rgba(255,255,255,0.8);\
+                    border-radius: 50%;\
+                    animation: sparkle $\{1 + Math.random() * 2\}s linear infinite;\
+                    left: $\{Math.random() * 100\}%;\
+                    top: $\{Math.random() * 100\}%;\
+                `;\
+                container.appendChild(spark);\
+            \}\
+        \}\
+\
+        window.addEventListener('load', createSparkles);\
+    </script>\
+</body>\
+</html>}
